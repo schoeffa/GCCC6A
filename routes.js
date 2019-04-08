@@ -8,7 +8,7 @@ routes.get("/music", (req, res) => {
 });
 
 routes.get("/music/:id", (req,res) => {
-    res.send(`Getting music with the id: ${id} from the database.`);
+    res.send(`Getting music with the id: ${req.params.id} from the database.`);
 });
 
 routes.post("/music", (req, res) => {
@@ -17,11 +17,13 @@ routes.post("/music", (req, res) => {
 });
 
 routes.delete("/music/:id", (req, res) => {
-    console.log(id);
+    console.log(req.params.id);
     res.send("Deleted music from the database.");
 });
 
 routes.put("/music/:id", (req,res) => {
-    console.log(id, req.body);
+    console.log(req.params.id, req.body);
     res.send("Updated music from the database.");
 });
+
+module.exports = routes;
